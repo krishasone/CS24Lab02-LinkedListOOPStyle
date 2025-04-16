@@ -1,6 +1,6 @@
 // intlist.cpp
 // Implements class IntList
-// YOUR NAME(S), AND DATE
+// Krisha Soneji 4/16/2025
 
 #include "intlist.h"
 
@@ -41,19 +41,32 @@ double IntList::average() const {
 
 // inserts value as new node at beginning of list
 void IntList::push_front(int value) {
-    // IMPLEMENT
+    Node* newNode = new Node();
+    newNode->info = value;
+    newNode->next = head;
+    head = newNode;
 }
 
 // append value at end of list
 void IntList::push_back(int value) {
-    // IMPLEMENT
- 
+    Node* n = head;
+    Node* newNode = new Node();
+    newNode->info = value;
+    newNode->next = nullptr;
+    if (n == nullptr) {
+        n = newNode;
+    }
+    else{
+        while (n->next!=nullptr){
+            n = n->next;
+        }
+        n->next = newNode;
+    }
 }
 
 // return count of values
 int IntList::count() const {
-   //IMPLEMENT THIS
-   return 0;
+    return 0;
 }
 
 
@@ -66,7 +79,7 @@ IntList& IntList::operator=(const IntList& source){
 
 // constructor sets up empty list
 IntList::IntList(){ 
-    //IMPLEMENT THIS 
+    head = nullptr;
 }
 
 
