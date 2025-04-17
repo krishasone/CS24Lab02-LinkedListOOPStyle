@@ -20,7 +20,14 @@ IntList::~IntList() {
 
 // return sum of values in list
 int IntList::sum() const {
-    return 0; // REPLACE THIS NON-SOLUTION
+    Node* n = head;
+    int sum = 0;
+    while (n != nullptr) {
+        sum += n->info;
+        n = n->next;
+    }
+    return sum;
+     // REPLACE THIS NON-SOLUTION
 }
 
 // returns true if value is in the list; false if not
@@ -55,6 +62,7 @@ void IntList::push_back(int value) {
     newNode->next = nullptr;
     if (n == nullptr) {
         n = newNode;
+        head = newNode;
     }
     else{
         while (n->next!=nullptr){
@@ -66,7 +74,13 @@ void IntList::push_back(int value) {
 
 // return count of values
 int IntList::count() const {
-    return 0;
+    Node* n = head;
+    int count = 0;
+    while (n != nullptr) {
+        count++;
+        n = n->next;
+    }
+    return count;
 }
 
 
