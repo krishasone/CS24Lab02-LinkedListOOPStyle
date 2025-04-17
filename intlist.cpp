@@ -32,12 +32,30 @@ int IntList::sum() const {
 
 // returns true if value is in the list; false if not
 bool IntList::contains(int value) const {
-    return false; // REPLACE THIS NON-SOLUTION
+    Node* n = head;
+    while (n != nullptr) {
+        if (n->info == value) {
+            return true;
+        }
+        n=n->next;
+    }
+    return false;
 }
 
 // returns maximum value in list, or 0 if empty list
 int IntList::max() const {
-    return 0; // REPLACE THIS NON-SOLUTION
+    Node* n = head;
+    if (head == nullptr) {
+        return 0;
+    }
+    int maxval = head->info;
+    while (n != nullptr) {
+        if (n->info > maxval) {
+            maxval = n->info;
+        }
+        n=n->next;
+    }
+    return maxval;
 }
 
 // returns average (arithmetic mean) of all values, or
@@ -69,6 +87,7 @@ void IntList::push_back(int value) {
             n = n->next;
         }
         n->next = newNode;
+        tail = newNode;
     }
 }
 
