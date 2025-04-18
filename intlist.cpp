@@ -9,12 +9,25 @@ using std::cout;
 
 // copy constructor
 IntList::IntList(const IntList& source) {
-    //IMPLEMENT THIS
+    head = nullptr;
+    tail = nullptr;
+    Node* curr = source.head;
+    while (curr != nullptr){
+        push_back(curr->info);
+        curr = curr->next;
+    }
 }
 
 // destructor deletes all nodes
 IntList::~IntList() {
-    //IMPLEMENT THIS
+    Node* current = head;
+    while (current != nullptr){
+        Node* next = current->next;
+        delete current;
+        current = next;
+    }
+    head = nullptr;
+    tail = nullptr;
 }
 
 
@@ -109,8 +122,27 @@ int IntList::count() const {
 //Assignment operator should copy the list from the source
 //to this list, deleting/replacing any existing nodes
 IntList& IntList::operator=(const IntList& source){
-    //IMPLEMENT
+    if (this == &source) {
+        return *this;
+    }
+    
+    Node* curr = head;
+    while (curr!=nullptr) {
+        Node* next = curr->next;
+        delete curr;
+        curr = next;
+    }
+
+    head = nullptr;
+    tail = nullptr;
+
+    curr = source.head;
+    while (curr!=nullptr) {
+        push_back(curr->info);
+        curr = curr->next;
+    }
     return *this;
+
 }
 
 // constructor sets up empty list
