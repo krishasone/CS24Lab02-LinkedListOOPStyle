@@ -77,7 +77,7 @@ double IntList::average() const {
     if (head==nullptr){
         return 0.0000;
     }
-    return static_cast<double>(sum()/count()); // REPLACE THIS NON-SOLUTION
+    return static_cast<double>(sum())/count(); // REPLACE THIS NON-SOLUTION
 }
 
 // inserts value as new node at beginning of list
