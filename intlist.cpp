@@ -75,7 +75,7 @@ int IntList::max() const {
 // 0 if list is empty
 double IntList::average() const {
     if (head==nullptr){
-        return 0.0;
+        return 0.000;
     }
     return sum()/count(); // REPLACE THIS NON-SOLUTION
 }
